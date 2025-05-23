@@ -35,7 +35,7 @@ h1 {
   font-size: 3rem;
   margin-bottom: 20px;
   color: #00cfff;
-  animation: glow 2s ease-in-out infinite alternate;
+  animation: glow 2s ease-in-out infinite alternate, fadeSlideUp 1s ease-out forwards;
 }
 
 @keyframes glow {
@@ -47,6 +47,17 @@ h1 {
   }
 }
 
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .textbox-container {
   background-color: #001f3f;
   padding: 20px;
@@ -55,6 +66,9 @@ h1 {
   width: 100%;
   max-width: 500px;
   margin-bottom: 20px;
+  animation: fadeSlideUp 1.5s ease-out forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
 }
 
 textarea {
@@ -91,4 +105,7 @@ footer {
   margin-top: 40px;
   font-size: 0.9rem;
   color: #006699;
+  animation: fadeSlideUp 2s ease-out forwards;
+  animation-delay: 1s;
+  opacity: 0;
 }
