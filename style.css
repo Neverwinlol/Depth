@@ -6,7 +6,9 @@
 
 body {
   font-family: 'Outfit', sans-serif;
-  background: linear-gradient(135deg, #000814, #001f3f, #000814);
+  background: linear-gradient(270deg, #000814, #001f3f, #000814, #001f3f);
+  background-size: 800% 800%;
+  animation: moveBG 20s ease infinite;
   color: #00aaff;
   display: flex;
   flex-direction: column;
@@ -15,6 +17,18 @@ body {
   min-height: 100vh;
   text-align: center;
   padding: 20px;
+}
+
+@keyframes moveBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 h1 {
