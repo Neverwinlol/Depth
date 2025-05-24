@@ -8,23 +8,46 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Very Cool</h1>
+  <h1>Depth Hub Website</h1>
 
   <div class="textbox-container">
-    <textarea id="textBot" placeholder="Type your message here..."></textarea>
+    <div id="textBot" class="text-label">This is your fixed message.</div>
     <button onclick="copyText()">Copy Text</button>
   </div>
 
   <footer>
-    <p>© 2025 Depth. All rights reserved.</p>
+    <p>© 2025 Depth Hub. All rights reserved.</p>
   </footer>
+
+  <div class="wave-container">
+    <svg viewBox="0 0 120 28" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="waveGradient" gradientTransform="rotate(90)">
+          <stop offset="5%" stop-color="#001f3f" />
+          <stop offset="95%" stop-color="#000814" />
+        </linearGradient>
+      </defs>
+      <path d="M0 10 Q 30 20 60 10 T 120 10 V30 H0 Z" fill="url(#waveGradient)">
+        <animate 
+          attributeName="d" 
+          dur="5s" 
+          repeatCount="indefinite" 
+          values="M0 10 Q 30 20 60 10 T 120 10 V30 H0 Z;
+                  M0 12 Q 30 16 60 12 T 120 12 V30 H0 Z;
+                  M0 10 Q 30 20 60 10 T 120 10 V30 H0 Z" />
+      </path>
+    </svg>
+  </div>
 
   <script>
     function copyText() {
-      const textArea = document.getElementById("textBot");
-      textArea.select();
-      textArea.setSelectionRange(0, 99999);
+      const div = document.getElementById("textBot");
+      const range = document.createRange();
+      range.selectNode(div);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
       document.execCommand("copy");
+      window.getSelection().removeAllRanges();
       alert("Text copied to clipboard!");
     }
   </script>
